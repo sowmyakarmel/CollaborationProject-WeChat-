@@ -1,0 +1,33 @@
+<div>
+
+<form novalidate="novalidate" ng-submit="blogCtrl.submitBlog()">
+
+<div class="form-group">
+<label for="blogTitle">Blog Title</label>
+<input type="text" class="form-control" ng-model="blogCtrl.blog.title">
+</div>
+<div class="form-group">
+<label for="blogTitle">Blog Description</label>
+<textarea class="form-control" ng-model="blogCtrl.blog.description"/>
+
+<input type="submit" value="submit">
+</div>
+
+</form>
+
+<div>
+
+
+  <div >
+  <table class="table">
+  <tr><th>Blog Title</th><th>Blog Description</th></tr>
+  <tr ng-repeat="blog in allBlogs" ng-show='blog.status=="Approved"'>
+  <td>{{blog.title}}</td>
+  <td>{{blog.description}}</td>
+  </tr>
+  </table>
+  </div>
+
+   
+</div>
+</div>

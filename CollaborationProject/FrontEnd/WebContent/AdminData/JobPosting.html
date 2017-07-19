@@ -1,0 +1,28 @@
+<div class="container">
+  <h2>JobPosting Details</h2>
+  
+  <form  ng-submit='jobCtrl.jobPosting()'>
+  {{jobCtrl.message}}
+    <div class="form-group">
+      <label for="title">Job Title:</label>
+      <input type="text" class="form-control" id="title" ng-model="jobCtrl.job.title" placeholder="Enter title" name="title">
+    </div>
+     <div class="form-group">
+      <label for="">Job Description:</label>
+      <textarea class="form-control" id="description" ng-model="jobCtrl.job.description"  name="description"/>
+    </div>
+    <div class="form-group">
+      <label for="passwordd">Job Qualification:</label>
+      <input type="text" class="form-control" ng-model="jobCtrl.job.qualification" id="qualification" placeholder="qualification" name="qualification">
+    </div>
+    <div class="form-group">
+      <label for="contactno">Interview Date:</label>
+      <input type="date" class="form-control" ng-model="jobCtrl.job.dated" id="interviewdate" name="inteviewdate">
+      <input type="hidden" class="form-control" ng-model="jobCtrl.job.status" id="status" name="status" value="pending">
+    </div>
+    
+    
+   
+    <button type="submit" class="btn btn-default">Submit</button>
+  </form>
+</div>

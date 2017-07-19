@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="MyApplication">
+<head>
+<title>Bootstrap Example</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
+<!--   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.0/angular-cookies.min.js"></script> -->
+<script
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-cookies.js"></script>
+<script type="text/javascript" src="application.js"></script>
+<script type="text/javascript" src="./scripts/login.js"></script>
+<script type="text/javascript" src="./scripts/logincontrol.js"></script>
+<script type="text/javascript" src="./scripts/blogcontrol.js"></script>
+<script type="text/javascript" src="./scripts/StudentJobController.js"></script>
+<link href="./style/login.css" rel="stylesheet" />
+<script type="text/javascript" src="./scripts/usercreate.js"></script>
+<script type="text/javascript" src="./scripts/jobcontrol.js"></script>
+
+</head>
+<body>
+
+	<nav class="navbar navbar-inverse" ng-hide="Userrole=='Admin'">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="#">WeChat</a>
+			</div>
+			<ul class="nav navbar-nav">
+				<li class="active"><a href="#">Home</a></li>
+				<li class="active"><a href="#">About Us</a></li>
+				<li class="active"><a href="#">Contact US</a></li>
+
+				<li class="dropdown" ng-show="Userrole=='student'"><a
+					class="dropdown-toggle" data-toggle="dropdown" href="#/blog">Blog</span></a></li>
+				<li class="dropdown" ng-show="Userrole=='student'"><a
+					class="dropdown-toggle" data-toggle="dropdown" href="#/jobs">Jobs</span></a></li>
+
+			</ul>
+			<ul class="nav navbar-nav navbar-right" ng-hide="Userrole=='student'">
+				<li><a href="#/signup"><span
+						class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+				<li data-toggle="modal" data-target="#myModal"><a href="#"><span
+						class="glyphicon glyphicon-log-in"></span> Login</a></li>
+			</ul>
+			<ul class="nav navbar-nav navbar-right" ng-show="Userrole=='student'"
+				ng-controller="HomeController as home">
+				<li><a href ng-click="home.logout()"><span
+						class="glyphicon glyphicon-user"></span> Logout</a></li>
+
+			</ul>
+		</div>
+	</nav>
+
+	<div ng-include="'./userdata/login.html'"
+		ng-controller='LoginController as logCtrl'></div>
+
+
+	<nav class="navbar navbar-inverse" ng-show="Userrole=='Admin'"
+		ng-controller="HomeController as home">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="#">WeChat</a>
+			</div>
+			<ul class="nav navbar-nav">
+				<li class="active"><a href="#">AdminHome</a></li>
+				<li><a href="#/blog">Blog</a></li>
+				<li><a href="#/jobposting">JobPosting</a></li>
+
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+				<li><a href ng-click="home.logout()"><span
+						class="glyphicon glyphicon-user"></span>Logout</a></li>
+
+			</ul>
+		</div>
+	</nav>
+
+
+
+
+	<ng-view> </ng-view>
+</body>
+</html>

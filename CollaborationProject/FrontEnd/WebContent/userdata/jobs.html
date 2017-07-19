@@ -1,0 +1,10 @@
+<table class="table">
+<tr><th>Job Title</th><th>Job Description</th><th>Job Qualification</th><th>Interview Date</th></tr>
+<tr ng-repeat="job in stdJobCtrl.allJobs">
+<td>{{job.title}}</td>
+<td>{{job.description}}</td>
+<td>{{job.qualification}}</td>
+<td>{{job.dated}}</td>
+<td><button class="btn btn-info" ng-click="stdJobCtrl.applyJob()">Apply</button></td>
+</tr>  
+ </table>
