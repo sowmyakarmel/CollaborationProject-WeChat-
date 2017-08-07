@@ -1,0 +1,17 @@
+
+<h1>Successfully applied for the following jobs</h1>
+<input type="button" ng-click="stdJobCtrl.allJobsbtn()" value="Alljobs">
+<table class="table">
+<tr><th>Job Title</th><th>Job Description</th><th>Job Qualification</th><th>Interview Date</th></tr>
+<tr ng-repeat="job in stdJobCtrl.appliedJobs">
+<td>{{job.title}}</td>
+<td>{{job.description}}</td>
+<td>{{job.qualification}}</td>
+<td>{{job.dated}}</td>
+
+</tr>  
+ </table>
+ 
+
+
+

@@ -1,0 +1,70 @@
+<div class="row" ng-show="frndCtrl.tab=='suggested'">
+
+
+  <button class="btn btn-success" ng-click="frndCtrl.selectTab('friends')">Friends</button>&nbsp;&nbsp;<button class="btn btn-warning" ng-click="frndCtrl.selectTab('requests')">Friend Requests</button>
+    <br>
+    <br>
+    <br>
+    
+    <div ng-repeat="user in frndCtrl.allUsers">
+         
+      <div ng-if="user.userName!='admin'" >
+    <div class="col-md-2">
+    <div class="thumbnail">
+      
+        <div class="caption">
+            <p>{{user.username}}</p>
+          <button ng-click="frndCtrl.addFriend(user.userid)" class="btn btn-primary">Add Friend</button>
+        </div>
+ 
+    </div>
+  </div>
+      </div>
+
+      
+        </div>
+    
+</div>
+<div ng-show="frndCtrl.tab=='friends'">
+  <br>
+    <br>
+    <br>
+        <button class="btn btn-success" ng-click="frndCtrl.selectTab('suggested')">Find More Friends</button>&nbsp;&nbsp;<button class="btn btn-warning" ng-click="frndCtrl.selectTab('requests')">Friend Requests</button>
+        
+         <div ng-repeat="friend in frndCtrl.friends">
+         <div ng-hide="friend.userid==frndCtrl.currentUser.userid">
+            <div class="col-md-2">
+    <div class="thumbnail">
+     
+        <div class="caption">
+        
+            <p>{{friend.username}}</p>
+          
+        </div>
+     
+    </div>
+  </div>
+  </div>
+         </div>
+      </div>
+
+      <div ng-show="frndCtrl.tab=='requests'">
+        <br>
+    <br>
+    <br>
+   
+        <button class="btn btn-success" ng-click="frndCtrl.selectTab('suggested')">Find Friends</button>&nbsp;&nbsp;<button class="btn btn-warning" ng-click="frndCtrl.selectTab('suggested')">Find More Friends</button>
+         <div ng-repeat="request in frndCtrl.frndRequests">
+           <div class="col-md-2">
+    <div class="thumbnail">
+    
+        <div class="caption">
+            <p>{{request.username}}</p>
+        
+        </div>
+      
+        <button ng-click="frndCtrl.updateStatus(request.userid,'conform')">Confirm</button>  &nbsp;&nbsp;&nbsp;<button ng-click="frndCtrl.updateStatus(request.userid,'reject')">Reject</button>
+    </div>
+           </div>
+  </div>
+      </div>
